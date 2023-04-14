@@ -24,6 +24,11 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "prisma": "^4.12.0"
+    "prisma": "^4.12.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "prisma": {
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
   }
 }
