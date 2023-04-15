@@ -19,7 +19,7 @@ const SidebarLink = ({ link }) => {
   return (
     <Link href={link.link}>
       <Icon
-        size={40}
+        size={30}
         className={clsx(
           "stroke-gray-400 hover:stroke-violet-600 transition duration-200 ease-in-out",
           isActive && "stroke-violet-600"
