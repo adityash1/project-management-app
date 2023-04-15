@@ -7,7 +7,7 @@ export default function DashboardRootLayout({ children }) {
     <html lang="en">
       <head />
       <body className="w-screen h-screen rainbow-mesh p-6">
-        <GlassPane className="w-full h-full flex items-center justify-center">
+        <GlassPane className="w-full h-full flex items-center">
           <Sidebar />
           {children}
         </GlassPane>
