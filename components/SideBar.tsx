@@ -4,9 +4,9 @@ import SidebarLink from "./SidebarLink";
 const links = [
   { label: "Home", icon: "Grid", link: "/home" },
   {
-    label: "Calendar",
-    icon: "Calendar",
-    link: "/calendar",
+    label: "Editor",
+    icon: "Edit2",
+    link: "/editor",
   },
   { label: "Profile", icon: "User", link: "/profile" },
   {
@@ -14,6 +14,11 @@ const links = [
     icon: "Settings",
     link: "/settings",
   },
+  {
+    label: "Logout",
+    icon: "LogOut",
+    link: "/signin",
+  }
 ];
 
 const Sidebar = () => {

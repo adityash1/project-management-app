@@ -26,3 +26,7 @@
 [data-nextjs-scroll-focus-boundary] {
     display: contents;
 }
+
+html {
+    font-family: 'Inter', sans-serif;
+}

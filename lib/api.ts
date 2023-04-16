@@ -27,6 +27,10 @@ export const signin = (user) => {
   return fetcher({ url: "/api/signin", method: "post", body: user });
 };
 
+export const logout = () => {
+  return fetcher({ url: "/api/logout", method: "post" });
+};
+
 export const createNewProject = async (name) => {
   return fetcher({
     url: "/api/project",
