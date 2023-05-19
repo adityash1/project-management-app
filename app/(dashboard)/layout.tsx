@@ -6,11 +6,9 @@ export default function DashboardRootLayout({ children }) {
   return (
     <html lang="en">
       <head />
-      <body className="w-screen h-screen rainbow-mesh p-6">
-        <GlassPane className="w-full h-full flex items-center">
+      <body className="w-screen h-screen flex items-center bg-gray-300 p-6">
           <Sidebar />
           {children}
-        </GlassPane>
         <div id="modal"></div>
       </body>
     </html>

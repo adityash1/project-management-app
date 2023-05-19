@@ -1,13 +1,11 @@
 "use client";
 
-import { register, signin } from "@/lib/api";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Link from "next/link";
 
-import Button from "./Button";
-import Card from "./Card";
-import Input from "./Input";
+import { Input, Label, Button } from "@/components/ui";
+import { register, signin } from "@/lib/api";
 
 const registerContent = {
   linkUrl: "/signin",
@@ -51,89 +49,80 @@ const AuthForm = ({ mode }) => {
   const content = mode === "register" ? registerContent : signinContent;
 
   return (
-    <Card>
-      <div className="w-full">
-        <div className="text-center">
-          <h2 className="text-3xl mb-2">{content.header}</h2>
-          <p className="tex-lg text-black/25">{content.subheader}</p>
-        </div>
-        <form onSubmit={handleSubmit} className="py-10 w-full">
-          {mode === "register" && (
-            <div className="flex mb-8 justify-between">
-              <div className="pr-2">
-                <div className="text-lg mb-4 ml-2 text-black/50">
-                  First Name
-                </div>
-                <Input
-                  required
-                  placeholder="First Name"
-                  value={formState.firstName}
-                  className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-                  onChange={(e) =>
-                    setFormState((s) => ({ ...s, firstName: e.target.value }))
-                  }
-                />
-              </div>
-              <div className="pl-2">
-                <div className="text-lg mb-4 ml-2 text-black/50">Last Name</div>
-                <Input
-                  required
-                  placeholder="Last Name"
-                  value={formState.lastName}
-                  className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
-                  onChange={(e) =>
-                    setFormState((s) => ({ ...s, lastName: e.target.value }))
-                  }
-                />
-              </div>
+    <div className="bg-card text-card-foreground px-16">
+      <div className="text-center py-4">
+        <h2 className="text-3xl mb-2">{content.header}</h2>
+        <p className="text-md text-muted-foreground">{content.subheader}</p>
+      </div>
+      <form onSubmit={handleSubmit}>
+        {mode === "register" && (
+          <div className="flex space-x-6 py-4">
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="firstName">First Name</Label>
+              <Input
+                id="firstName"
+                required
+                type="text"
+                placeholder="First Name"
+                value={formState.firstName}
+                onChange={(e) =>
+                  setFormState((s) => ({ ...s, firstName: e.target.value }))
+                }
+              />
             </div>
-          )}
-          <div className="mb-8">
-            <div className="text-lg mb-4 ml-2 text-black/50">Email</div>
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label htmlFor="lastName">Last Name</Label>
+              <Input
+                required
+                id="lastName"
+                type="text"
+                placeholder="Last Name"
+                value={formState.lastName}
+                onChange={(e) =>
+                  setFormState((s) => ({ ...s, lastName: e.target.value }))
+                }
+              />
+            </div>
+          </div>
+        )}
+        <div className="flex space-x-6 py-4">
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label htmlFor="email">Email</Label>
             <Input
               required
+              id="email"
               type="email"
               placeholder="Email"
               value={formState.email}
-              className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
               onChange={(e) =>
                 setFormState((s) => ({ ...s, email: e.target.value }))
               }
             />
           </div>
-          <div className="mb-8">
-            <div className="text-lg mb-4 ml-2 text-black/50">Password</div>
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label htmlFor="password">Password</Label>
             <Input
               required
-              value={formState.password}
+              id="password"
               type="password"
               placeholder="Password"
-              className="border-solid border-gray border-2 px-6 py-2 text-lg rounded-3xl w-full"
+              value={formState.password}
               onChange={(e) =>
                 setFormState((s) => ({ ...s, password: e.target.value }))
               }
             />
           </div>
-          <div className="flex items-center justify-between">
-            <div>
-              <span>
-                <Link
-                  href={content.linkUrl}
-                  className="text-blue-600 font-bold"
-                >
-                  {content.linkText}
-                </Link>
-              </span>
-            </div>
-            <div>
-              <Button type="submit" intent="secondary">
-                {content.buttonText}
-              </Button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </Card>
+        </div>
+        <div className="flex justify-between space-y-4">
+          <Link href={content.linkUrl} className="text-md font-semibold pt-6">
+            {content.linkText}
+          </Link>
+          <Button type="submit" variant="default">
+            {content.buttonText}
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };
 
