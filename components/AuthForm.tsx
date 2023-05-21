@@ -49,7 +49,7 @@ const AuthForm = ({ mode }) => {
   const content = mode === "register" ? registerContent : signinContent;
 
   return (
-    <div className="bg-card text-card-foreground px-16">
+    <div className="bg-card text-card-foreground p-16 rounded-md">
       <div className="text-center py-4">
         <h2 className="text-3xl mb-2">{content.header}</h2>
         <p className="text-md text-muted-foreground">{content.subheader}</p>

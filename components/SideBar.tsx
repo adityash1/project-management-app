@@ -23,7 +23,7 @@ const links = [
 
 const Sidebar = () => {
   return (
-    <Card className="h-full w-20 flex items-center justify-around flex-col mr-4 rounded-xl">
+    <Card className="h-full w-20 flex items-center justify-around flex-col mr-4 bg-card">
       {links.map((link) => (
         <SidebarLink link={link} />
       ))}

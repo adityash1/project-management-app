@@ -4,7 +4,7 @@ export default function AuthRootLayout({ children }) {
   return (
     <html lang="en">
       <head />
-      <body className="bg-background flex items-center justify-center h-screen">
+      <body className="flex items-center justify-center h-screen">
           {children}
       </body>
     </html>
