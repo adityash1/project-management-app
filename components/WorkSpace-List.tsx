@@ -4,12 +4,12 @@ import {
   currentWorkspaceIdAtom,
   workspaceIdsAtom,
 } from "../store";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useCallback } from "react";
 
 export const WorkspaceList = () => {
   const [ids, setIds] = useAtom(workspaceIdsAtom);
-//   const router = useRouter();
+  const router = useRouter();
   const setWorkspaceId = useSetAtom(currentWorkspaceIdAtom);
   const setPageId = useSetAtom(currentPageIdAtom);
   return (
@@ -29,7 +29,7 @@ export const WorkspaceList = () => {
               onClick={() => {
                 setWorkspaceId(id);
                 setPageId("page0");
-                // void router.push(`/${id}/page0`);
+                void router.push(`/${id}/page0`);
               }}
             >
               open

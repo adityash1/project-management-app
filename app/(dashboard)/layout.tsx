@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import GlassPane from "@/components/GlassPane";
 import Sidebar from "@/components/SideBar";
 
 export default function DashboardRootLayout({ children }) {
